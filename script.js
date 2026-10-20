@@ -18,7 +18,9 @@ let restaurants = [];
 document.querySelector('#run-todo-1').addEventListener('click', () => {
   startLog('#log-todo-1');
 
-  // YOUR CODE HERE
+  // Anwser: 
+  // I think that Wating will come first and then when the timeout of 2000 ms is done then it will say Ready
+  
   // Hint: setTimeout(() => { ...write 'Ready!' to the page, and log('#log-todo-1', 'Ready!') }, 2000);
   setTimeout(() => {log('#log-todo-1', 'Ready!')}, 2000);
 
@@ -40,7 +42,7 @@ document.querySelector('#load-then').addEventListener('click', () => {
   fetch('./restaurants.json')
     .then((response) => response.json())
     .then((data) => {
-      restaurants = data
+      restaurants = data // saved it into restaurants 
       console.log(restaurants);
       log('#log-then', ` ${restaurants.length} is number of restaurants`)
       setCountButton(true)
@@ -68,8 +70,9 @@ document.querySelector('#load-await').addEventListener('click', async () => {
   //   ...save it, showStatus('success', ...), setCountButton(true)
       restaurants = data; // is this how you save it??? 
       console.log(restaurants);
-      log('#log-then', ` ${restaurants.length} is number of restaurants`);
-      showStatus('success', 'The load was successfully.');  
+      // makes mreo sense to be using loading-status 
+      log('#loading-status', ` ${restaurants.length} is number of restaurants`);
+      showStatus('success', `The load was successfully.`);  
       setCountButton(true); 
   } catch (error) {
   //   ...console.error the error, then showStatus('error', ...) with a friendly message
